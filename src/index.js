@@ -5,7 +5,7 @@ const {
   Menu,
   nativeImage,
   dialog
- } = require('electron');
+ } = require('electron'); 
 const path = require('path');
 const {app: express, server} = require('./server')
 

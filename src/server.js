@@ -2,9 +2,24 @@ const http = require('http');
 const express = require('express');
 const app = express();
 const server = http.createServer(app);
+require('./backend/db/db.connection.js')
 
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+
+
+const router = require('./backend/routers/router.js')
+
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+app.use("/",router)
+
+
+
+
+
+
+
 
 const host = '0.0.0.0'
 const port = 54321
@@ -14,43 +29,17 @@ app.set ('Port', port)
 
 
 
-//https://swagger.io/specification/#infoObject
-const swaggerOptions = {
-    swaggerDefinition: {
-        info: {
-            title: 'Wise Neosco Gate Server API',
-            description: 'Wise Neosco Gate Server API Information',
-            contact: {
-                name: "Wise Neosco Team"
-            },
-            servers: ["http://localhost:3000"]
-        }
-    },
-    // ['.routes/*.js']
-    apis: ["server.js"]
-}
 
 
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Routes
-/**
- * 
- * @swagger
- * /customer:
- *  get:
- *      description: Use to request all customers
- *      responses:
- *          '200':
- *              description: A successful response
- */ 
 
-app.get('/customer', (req, res) => {
-    console.log("request received");
-    res.status(200).send("Hello World");
-});
+// app.get('/addManagerGroup',Manager_Group.addManagerGroup)
+// app.get('/getManagerGroup',Manager_Group.getManagerGroup)
+// app.get('/getManagerGroupById',Manager_Group.getManagerGroupById)
+// app.get('/updateManagerGroup',Manager_Group.updateManagerGroup)
+// app.get('/deleteManagerGroup',Manager_Group.deleteManagerGroup)
+
 
 
 // server.listen(port, host, () => {
