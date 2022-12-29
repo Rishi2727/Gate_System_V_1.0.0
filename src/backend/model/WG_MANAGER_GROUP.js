@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             // allowNull: false,
             primaryKey: true,
             unique: true,
-            autoincrement: true,
+            autoIncrement: true,
         },
         GROUP_NAME:{
             type: DataTypes.STRING(100),
