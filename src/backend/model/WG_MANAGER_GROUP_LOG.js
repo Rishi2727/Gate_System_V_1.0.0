@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     WG_MANAGER_GROUP_LOG.removeAttribute('id') // remove id attribute
     // model associations
     WG_MANAGER_GROUP_LOG.associate = function(models) {
-        WG_MANAGER_GROUP_LOG.belongsTo(models.WG_MANAGER_GROUP, {foreignKey: 'GROUP_ID', targetKey: 'GROUP_ID'})
+        WG_MANAGER_GROUP_LOG.belongsTo(models.WG_MANAGER_GROUP, {foreignKey: 'GROUP_ID',targetKey: 'GROUP_ID'})
     }
     return WG_MANAGER_GROUP_LOG
 }

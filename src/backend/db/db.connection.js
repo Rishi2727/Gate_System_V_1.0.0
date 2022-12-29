@@ -1,7 +1,7 @@
 const {Sequelize, DataTypes} = require('sequelize');
 
 
-db_name = 'test'
+db_name = 'Gate_System_V_1.0.0'
 db_user = 'root'
 db_password = ''
 

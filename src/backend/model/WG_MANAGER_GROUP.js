@@ -2,11 +2,11 @@ module.exports = (sequelize, DataTypes) => {
     const WG_MANAGER_GROUP = sequelize.define('WG_MANAGER_GROUP', {
         // Model attributes are defined here
         GROUP_ID:{
-            type: DataTypes.STRING(30),
-            allowNull: false,
+            type: DataTypes.INTEGER,
+            // allowNull: false,
             primaryKey: true,
             unique: true,
-            
+            autoincrement: true,
         },
         GROUP_NAME:{
             type: DataTypes.STRING(100),
@@ -26,4 +26,5 @@ module.exports = (sequelize, DataTypes) => {
         
     })
     WG_MANAGER_GROUP.removeAttribute('id') // remove id attribute
+    return WG_MANAGER_GROUP
 }
